@@ -1,32 +1,32 @@
 class Solution {
 public:
-    int findUnsortedSubarray(vector<int>& arr) {
-        int n = arr.size();
-        int l = -1 , r = -1;
+    int findUnsortedSubarray(vector<int>& nums) {
+        int left = -1 , right = -1;
+        int n = nums.size();
         
         for(int i = 0 ; i<n-1 ; i++){
-            if(arr[i]>arr[i+1]){
-                l = i ; 
+            if(nums[i]>nums[i+1]){
+                left = i ;
                 break;
             }
         }
         for(int i = n-1 ; i>=1 ; i--){
-            if(arr[i]<arr[i-1]){
-                r = i ;
+            if(nums[i-1]>nums[i]){
+                right = i;
                 break;
             }
         }
- 
+        if(left==-1) return 0;
         
-      
-        if(l == -1) return 0; 
-        int mini = arr[l], maxi = arr[l];
-        for(int i = l; i <=r; i++) {
-            mini = min(mini, arr[i]);
-            maxi = max(maxi, arr[i]);
+        int mini = nums[left] , maxi = nums[left];
+        for(int i = left ; i<=right ; i++){
+            mini = min(mini , nums[i]);
+            maxi = max(maxi , nums[i]);
         }
-        l = upper_bound(arr.begin(), arr.begin() + l, mini) - arr.begin();
-        r = lower_bound(arr.begin() + r + 1, arr.end(), maxi) - arr.begin();
-        return r - l;
+        left = upper_bound(nums.begin() , nums.begin()+left , mini) - nums.begin();
+        right = lower_bound(nums.begin()+right+1 , nums.end() , maxi) - nums.begin();
+        
+        return right-left;
+        
     }
 };
