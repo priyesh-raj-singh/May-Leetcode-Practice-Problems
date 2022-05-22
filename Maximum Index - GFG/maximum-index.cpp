@@ -6,17 +6,21 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
 public:
-    int maxIndexDiff(int arr[], int n) {
-       int ans = INT_MIN;
-       for(int i = 0 ; i<n ; i++){
-           for(int j = n-1 ; j>=0 ; j--){
-               if(arr[i]<=arr[j]){
-                   ans = max(ans , j-i);
-                   break;
-               }
-           }
-       }
-       return ans;
+    int maxIndexDiff(int A[], int N) {
+        // code here
+        int maxi = 0 ; 
+        int i = 0 ; 
+        int j = N-1;
+        while(i<=j){
+            if(A[i]<=A[j]){
+                maxi = max(maxi , j-i);
+                i++;
+                j = N-1;
+            }
+            else
+            j--;
+        }
+        return maxi;
     }
 
 };
