@@ -14,19 +14,15 @@ class Solution{
     { 
         // Your code here
         int maxi = 0 ;
-        int i = 0 ; 
-        int j = N-1;
-        while(i<=j){
-            if(A[i]<=A[j]){
-                maxi = max(maxi , j-i);
-                i++;
-                j = N-1;
-            }
-            else{
-                j--;
-            }
-        }
-        return maxi;
+       for(int i = 0 ; i<N ; i++){
+           for(int j = N-1 ; j>=0 ; j--){
+               if(A[i]<=A[j]){
+                   maxi = max(maxi , j - i);
+                   break;
+               }
+           }
+       }
+       return maxi;
     }
 };
 
