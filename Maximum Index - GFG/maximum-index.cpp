@@ -1,14 +1,19 @@
 // { Driver Code Starts
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
+
 
  // } Driver Code Ends
 class Solution{
-public:
-    int maxIndexDiff(int A[], int N) {
-        // code here
-        int maxi = 0 ; 
+    public:
+        
+    // A[]: input array
+    // N: size of array
+    // Function to find the maximum index difference.
+    int maxIndexDiff(int A[], int N) 
+    { 
+        // Your code here
+        int maxi = 0 ;
         int i = 0 ; 
         int j = N-1;
         while(i<=j){
@@ -17,30 +22,36 @@ public:
                 i++;
                 j = N-1;
             }
-            else
-            j--;
+            else{
+                j--;
+            }
         }
         return maxi;
     }
-
 };
 
-
 // { Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, i;
-        cin >> n;
-        int a[n];
-        for (i = 0; i < n; i++) {
-            cin >> a[i];
-        }
+  
+/* Driver program to test above functions */
+int main() 
+{
+    int T;
+    //testcases
+    cin>>T;
+    while(T--){
+        int num;
+        //size of array
+        cin>>num;
+        int arr[num];
+        
+        //inserting elements
+        for (int i = 0; i<num; i++)
+            cin>>arr[i];
         Solution ob;
-        auto ans = ob.maxIndexDiff(a, n);
-        cout << ans << "\n";
+        
+        //calling maxIndexDiff() function
+        cout<<ob.maxIndexDiff(arr, num)<<endl;    
+        
     }
     return 0;
-}  // } Driver Code Ends
+}   // } Driver Code Ends
