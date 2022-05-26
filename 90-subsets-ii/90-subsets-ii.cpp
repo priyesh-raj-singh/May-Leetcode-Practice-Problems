@@ -2,7 +2,7 @@ class Solution {
 public:
     void generate(set<vector<int>> &s , vector<int> &emp , vector<int> &nums , int i){
         sort(nums.begin() , nums.end());
-        if(i>=nums.size()){
+        if(i==nums.size()){
             s.insert(emp);
             return;
         }
